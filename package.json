@@ -8,5 +8,9 @@
   },
   "keywords": [],
   "author": "Phil Nash <philnash@gmail.com> (https://philna.sh/)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^8.0.9",
+    "yargs": "^17.7.2"
+  }
 }
