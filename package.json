@@ -2,9 +2,10 @@
   "name": "dad-jokes-cli",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/cli.js",
+  "main": "./dist/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "keywords": [],
   "author": "Phil Nash <philnash@gmail.com> (https://philna.sh/)",
@@ -12,5 +13,8 @@
   "dependencies": {
     "superagent": "^8.0.9",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
   }
 }

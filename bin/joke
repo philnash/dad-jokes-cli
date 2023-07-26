@@ -1,4 +1,4 @@
 #!/usr/bin/env node
 
-const { run } = require("../src/cli");
+const { run } = require("../dist/cli");
 run(process.argv).catch((err) => console.error(err));
