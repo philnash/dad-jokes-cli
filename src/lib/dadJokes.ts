@@ -1,23 +1,33 @@
-const superagent = require("superagent");
-const version = require("./version");
+import superagent from "superagent";
+import version from "./version";
 
 const url = "https://icanhazdadjoke.com/";
 const userAgent = `@philnash/dad-jokes:${version}`;
 
-async function random() {
+type DadJoke = {
+  id: string;
+  joke: string;
+  status: number;
+};
+type DadJokeSearchResult = {
+  results: DadJoke[];
+  status: number;
+};
+
+export async function random() {
   try {
     const result = await superagent
       .get(url)
       .set("User-Agent", userAgent)
       .accept("json");
-    const dadJoke = result.body;
+    const dadJoke = result.body as DadJoke;
     return dadJoke.joke;
   } catch (error) {
     console.error(error);
   }
 }
 
-async function search(term) {
+export async function search(term: string) {
   try {
     const searchUrl = `${url}search`;
     const result = await superagent
@@ -25,11 +35,9 @@ async function search(term) {
       .query({ term })
       .set("User-Agent", userAgent)
       .accept("json");
-    const dadJokes = result.body;
+    const dadJokes = result.body as DadJokeSearchResult;
     return dadJokes.results.map((result) => result.joke);
   } catch (error) {
     console.error(error);
   }
 }
-
-module.exports = { random, search };

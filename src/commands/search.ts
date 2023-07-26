@@ -1,27 +1,23 @@
-const { search } = require("../lib/dadJokes");
-const { stdout } = require("node:process");
+import { ArgumentsCamelCase, Options } from "yargs";
+import { search } from "../lib/dadJokes";
+import { stdout } from "node:process";
 
 const command = "search";
 
 const describe = "Search for dad jokes containing the search term.";
 
-const builder = {
+const builder: { [key: string]: Options } = {
   term: {
     describe: "The term to search for",
     demandOption: true,
   },
 };
 
-async function handler(args) {
+async function handler(args: any) {
   const jokes = await search(args.term);
   if (jokes) {
     stdout.write(jokes.join("\n\n") + "\n");
   }
 }
 
-module.exports = {
-  command,
-  describe,
-  builder,
-  handler,
-};
+export default { command, describe, builder, handler };
