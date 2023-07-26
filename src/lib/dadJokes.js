@@ -19,10 +19,10 @@ async function random() {
 
 async function search(term) {
   try {
-    const searchUrl = new URL(`${url}search`);
-    searchUrl.searchParams.append("term", term);
+    const searchUrl = `${url}search`;
     const result = await superagent
       .get(searchUrl)
+      .query({ term })
       .set("User-Agent", userAgent)
       .accept("json");
     const dadJokes = result.body;
