@@ -1,14 +1,26 @@
 {
-  "name": "dad-jokes-cli",
+  "name": "@philnash/dad-jokes-cli",
   "version": "1.0.0",
-  "description": "",
+  "description": "A CLI for querying the icanhazdadjoke API",
+  "homepage": "https://github.com/philnash/dad-jokes-cli",
+  "bugs": {
+    "url": "https://github.com/philnash/dad-jokes-cli/issues"
+  },
   "main": "./dist/cli.js",
+  "bin": {
+    "joke": "./bin/joke"
+  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch"
   },
-  "keywords": [],
+  "keywords": [
+    "jokes",
+    "dad jokes",
+    "cli"
+  ],
   "author": "Phil Nash <philnash@gmail.com> (https://philna.sh/)",
+  "funding": "https://github.com/sponsors/philnash",
   "license": "MIT",
   "dependencies": {
     "superagent": "^8.0.9",
@@ -19,5 +31,12 @@
     "@types/superagent": "^4.1.18",
     "@types/yargs": "^17.0.24",
     "typescript": "^5.1.6"
+  },
+  "files": [
+    "./dist/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philnash/dad-jokes-cli.git"
   }
 }
